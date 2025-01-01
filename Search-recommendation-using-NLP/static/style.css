@@ -1,0 +1,84 @@
+body {
+    background-color: #f0f4f8; /* Light gray-blue background for contrast */
+    color: #333; /* Dark gray text color for readability */
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    background-color: #ffffff; /* White card background for a clean look */
+    color: #333; /* Dark text color inside the card */
+    transition: transform 0.2s; /* Animation for hover effect */
+    border: none; /* Remove border for a cleaner look */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slightly enlarge card on hover */
+    background-color: #f8f9fa; /* Light gray on hover */
+}
+
+.card-title {
+    font-weight: bold;
+    color: #007bff; /* Blue title color for emphasis */
+}
+
+.card-text {
+    color: #555; /* Medium gray text for description */
+}
+
+.btn-link {
+    color: #007bff; /* Blue for links */
+}
+
+.btn-success {
+    background-color: #28a745; /* Green for like button */
+    border-color: #28a745; /* Match border with button color */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.btn-info {
+    background-color: #17a2b8; /* Teal for see comments button */
+    border-color: #17a2b8; /* Match border with button color */
+}
+
+.btn-info:hover {
+    background-color: #138496; /* Darker teal on hover */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue for post comment button */
+    border-color: #007bff; /* Match border with button color */
+}
+
+.btn-primary:hover {
+    background-color: #0069d9; /* Darker blue on hover */
+}
+
+h1 {
+    color: #d9534f; /* Red title color for attention */
+    background-color: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    border-radius: 15px; /* Consistent rounded corners */
+    padding: 15px; /* Increased padding for better spacing */
+    margin: 20px 0; /* Uniform margin */
+    display: inline-block; /* Changed to inline-block */
+    font-size: xx-large;
+}
+
+/* Header section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

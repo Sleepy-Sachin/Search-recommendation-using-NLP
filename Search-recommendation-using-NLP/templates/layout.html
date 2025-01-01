@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>YouTube Recommendation</title>
+    <style>
+        body {
+            background-color: rgb(255, 238, 238); /* Light background for contrast */
+            color: black; /* Dark text color for readability */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn-light {
+            background-color: white; /* White background */
+            color: #007bff; /* Blue text */
+            border: 2px solid #007bff; /* Blue border */
+        }
+
+        .btn-light:hover {
+            background-color: #e9ecef; /* Light gray on hover */
+            color: #0056b3; /* Darker blue text on hover */
+        }
+
+        /* Other styles here... */
+    </style>
+</head>
+<body>
+    <div class="container-fluid mt-4">
+        <header class="text-center mb-4">
+            <h1>Recommendation System</h1>
+            <form action="/search" method="post" class="form-inline justify-content-center">
+                <input type="text" name="keyword" class="form-control mr-2" placeholder="Search videos..." required style="width: 1000px; height: 60px;">
+                <button type="submit" class="btn btn-light" style="height: 60px;">🔍</button>
+            </form>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

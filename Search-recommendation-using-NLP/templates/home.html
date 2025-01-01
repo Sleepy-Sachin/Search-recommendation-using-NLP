@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="text-center mb-4">Videos</h2>
+<div class="row">
+    {% for video in videos %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm" style="background-color: #ffffff;">
+            <img src="{{ video.thumbnail }}" class="card-img-top" alt="{{ video.title }}">
+            <div class="card-body">
+                <h5 class="card-title text-primary">{{ video.title }}</h5>
+                <p class="card-text" id="desc-{{ video._id }}" style="display: none;">{{ video.description }}</p>
+                <button class="btn btn-link" id="toggle-desc-{{ video._id }}" onclick="toggleDescription('{{ video._id }}')">See More</button>
+
+                <div class="d-flex justify-content-between mt-2">
+                    <p class="mb-0">Likes 👍: {{ video.likes }}</p>
+                    <p class="mb-0">Views 👀: {{ video.views }}</p>
+                </div>
+
+                <form action="{{ url_for('like_video', video_id=video._id) }}" method="post" class="mt-2">
+                    <button type="submit" class="btn btn-success w-100">Like</button>
+                </form>
+
+                <h6 class="mt-3">Comments 💭:</h6>
+                <div class="comments-{{ video._id }}" style="display: none;">
+                    <ul class="list-unstyled">
+                        {% for comment in video.comments %}
+                        <li class="border-bottom py-1">{{ comment }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <button class="btn btn-info w-100" id="toggle-comments-{{ video._id }}" onclick="toggleComments('{{ video._id }}')">See Comments</button>
+
+                <form action="{{ url_for('comment_video', video_id=video._id) }}" method="post" class="mt-2">
+                    <div class="input-group">
+                        <input type="text" name="comment" placeholder="Add a comment..." class="form-control" required>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleDescription(videoId) {
+        const desc = document.getElementById(`desc-${videoId}`);
+        const toggleDescBtn = document.getElementById(`toggle-desc-${videoId}`);
+
+        if (desc.style.display === "none") {
+            desc.style.display = "block";
+            toggleDescBtn.textContent = "See Less";
+        } else {
+            desc.style.display = "none";
+            toggleDescBtn.textContent = "See More";
+        }
+    }
+
+    function toggleComments(videoId) {
+        const comments = document.querySelector(`.comments-${videoId}`);
+        const toggleCommentsBtn = document.getElementById(`toggle-comments-${videoId}`);
+
+        if (comments.style.display === "none") {
+            comments.style.display = "block";
+            toggleCommentsBtn.textContent = "Close Comments";
+        } else {
+            comments.style.display = "none";
+            toggleCommentsBtn.textContent = "See Comments";
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Search Results for "{{ keyword }}"</h2>
+<div class="row">
+    {% if videos %}
+        {% for video in videos %}
+        <div class="col-md-2 mb-4">
+            <div class="card h-100" style="background-color: #f8f9fa;">
+                <img src="{{ video.thumbnail }}" class="card-img-top" alt="{{ video.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ video.title }}</h5>
+                    <p class="card-text" id="desc-{{ video._id }}" style="display: none;">{{ video.description }}</p>
+                    <button class="btn btn-link" id="toggle-desc-{{ video._id }}" onclick="toggleDescription('{{ video._id }}')">See More</button>
+
+                    <p>Likes 👍: {{ video.likes }}</p>
+                    <p>Views 👀: {{ video.views }}</p>
+
+                    <form action="{{ url_for('like_video', video_id=video._id) }}" method="post">
+                        <button type="submit" class="btn btn-success">Like</button>
+                    </form>
+
+                    <h6>Comments 💭:</h6>
+                    <div class="comments-{{ video._id }}" style="display: none;">
+                        <ul>
+                            {% for comment in video.comments %}
+                            <li>{{ comment }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <button class="btn btn-info" id="toggle-comments-{{ video._id }}" onclick="toggleComments('{{ video._id }}')">See Comments</button>
+
+                    <form action="{{ url_for('comment_video', video_id=video._id) }}" method="post" class="mt-2">
+                        <input type="text" name="comment" placeholder="Add a comment..." class="form-control" required>
+                        <button type="submit" class="btn btn-primary mt-2">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No results found for "{{ keyword }}".</p>
+    {% endif %}
+</div>
+
+<script>
+    function toggleDescription(videoId) {
+        const desc = document.getElementById(`desc-${videoId}`);
+        const toggleDescBtn = document.getElementById(`toggle-desc-${videoId}`);
+
+        if (desc.style.display === "none") {
+            desc.style.display = "block";
+            toggleDescBtn.textContent = "See Less";
+        } else {
+            desc.style.display = "none";
+            toggleDescBtn.textContent = "See More";
+        }
+    }
+
+    function toggleComments(videoId) {
+        const comments = document.querySelector(`.comments-${videoId}`);
+        const toggleCommentsBtn = document.getElementById(`toggle-comments-${videoId}`);
+
+        if (comments.style.display === "none") {
+            comments.style.display = "block";
+            toggleCommentsBtn.textContent = "Close Comments";
+        } else {
+            comments.style.display = "none";
+            toggleCommentsBtn.textContent = "See Comments";
+        }
+    }
+</script>
+{% endblock %}

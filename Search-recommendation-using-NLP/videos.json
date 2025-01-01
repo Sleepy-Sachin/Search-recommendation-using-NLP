@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Introduction to Python",
+        "description": "A comprehensive guide to Python programming.",
+        "thumbnail": "static/thumbnails/python_intro.jpg",
+        "likes": 150,
+        "comments": []
+    },
+    {
+        "title": "Flask Web Development",
+        "description": "Learn how to create web applications using Flask.",
+        "thumbnail": "static/thumbnails/flask_web_dev.jpg",
+        "likes": 200,
+        "comments": []
+    },
+    {
+        "title": "Data Science with Pandas",
+        "description": "Master data analysis with Pandas.",
+        "thumbnail": "static/thumbnails/pandas_data_science.jpg",
+        "likes": 120,
+        "comments": []
+    },
+    {
+        "title": "Machine Learning Basics",
+        "description": "An introduction to the fundamentals of machine learning.",
+        "thumbnail": "static/thumbnails/ml_basics.jpg",
+        "likes": 180,
+        "comments": []
+    },
+    {
+        "title": "Understanding APIs",
+        "description": "Learn what APIs are and how to use them.",
+        "thumbnail": "static/thumbnails/apis_guide.jpg",
+        "likes": 90,
+        "comments": []
+    },
+    {
+        "title": "Web Development with Django",
+        "description": "Build web applications using Django framework.",
+        "thumbnail": "static/thumbnails/django_web_dev.jpg",
+        "likes": 160,
+        "comments": []
+    },
+    {
+        "title": "Introduction to JavaScript",
+        "description": "Learn the basics of JavaScript programming.",
+        "thumbnail": "static/thumbnails/js_intro.jpg",
+        "likes": 220,
+        "comments": []
+    },
+    {
+        "title": "CSS Flexbox Tutorial",
+        "description": "A beginner's guide to CSS Flexbox layout.",
+        "thumbnail": "static/thumbnails/css_flexbox.jpg",
+        "likes": 130,
+        "comments": []
+    },
+    {
+        "title": "React for Beginners",
+        "description": "Start building user interfaces with React.",
+        "thumbnail": "static/thumbnails/react_beginners.jpg",
+        "likes": 240,
+        "comments": []
+    },
+    {
+        "title": "Introduction to HTML",
+        "description": "Learn the basics of HTML for web development.",
+        "thumbnail": "static/thumbnails/html_intro.jpg",
+        "likes": 170,
+        "comments": []
+    }
+]
